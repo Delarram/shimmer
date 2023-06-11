@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../model/nature.dart';
 
@@ -56,7 +57,7 @@ class _ShimmerPageState extends State<ShimmerPage> {
           return Container(
             margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
             height: 70.0,
-
+            child: isLoaded ? getListItem(nature) : getShimmerLoading(),
           );
         }).toList(),
       ),
@@ -98,6 +99,49 @@ class _ShimmerPageState extends State<ShimmerPage> {
           ),
         )
       ],
+    );
+  }
+
+  Shimmer getShimmerLoading() {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 100,
+            width: 100,
+            color: Colors.white,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 18.0,
+                  color: Colors.white,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 14.0,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
