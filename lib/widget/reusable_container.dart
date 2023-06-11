@@ -4,8 +4,8 @@ import '../const/const.dart';
 
 
 
-class Skeleton extends StatelessWidget {
-  const Skeleton({Key? key, this.height, this.width}) : super(key: key);
+class ResuableContainer extends StatelessWidget {
+  const ResuableContainer({Key? key, this.height, this.width}) : super(key: key);
 
   final double? height, width;
 

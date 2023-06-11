@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../const/const.dart';
 
 
-class NewsCard extends StatelessWidget {
-  const NewsCard({
+class ShimmerLoadingCard extends StatelessWidget {
+  const ShimmerLoadingCard({
     Key? key,
     required this.image,
   }) : super(key: key);

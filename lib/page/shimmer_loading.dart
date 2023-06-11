@@ -49,7 +49,7 @@ class _ShimmerLoadingState extends State<ShimmerLoading> {
         )
             : ListView.separated(
           itemCount: 6,
-          itemBuilder: (context, index) => NewsCard(
+          itemBuilder: (context, index) => ShimmerLoadingCard(
             image: "assets/images/Image_$index.png",
           ),
           separatorBuilder: (context, index) =>
@@ -69,26 +69,26 @@ class NewsCardSkelton extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        Skeleton(height: 120, width: 120),
+        ResuableContainer(height: 120, width: 120),
         SizedBox(width: defaultPadding),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Skeleton(width: 80),
+              ResuableContainer(width: 80),
               SizedBox(height: defaultPadding / 2),
-              Skeleton(),
+              ResuableContainer(),
               SizedBox(height: defaultPadding / 2),
-              Skeleton(),
+              ResuableContainer(),
               SizedBox(height: defaultPadding / 2),
               Row(
                 children: [
                   Expanded(
-                    child: Skeleton(),
+                    child: ResuableContainer(),
                   ),
                   SizedBox(width: defaultPadding),
                   Expanded(
-                    child: Skeleton(),
+                    child: ResuableContainer(),
                   ),
                 ],
               )
