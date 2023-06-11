@@ -31,6 +31,18 @@ class _ShimmerPageState extends State<ShimmerPage> {
         "https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"),
   ];
 
+  bool isLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      setState(() {
+        isLoaded = true;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,4 +62,43 @@ class _ShimmerPageState extends State<ShimmerPage> {
       ),
     );
   }
+  Row getListItem(Nature nature) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.network(
+          nature.url,
+          height: 100,
+          width: 100,
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 18.0,
+                child: Text(nature.name),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 14.0,
+                child: Text(nature.description),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
 }
