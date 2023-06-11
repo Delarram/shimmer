@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shimmerflutter/page/shimmer_page.dart';
+import 'package:shimmerflutter/page/shimmer_loading.dart';
 
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const ShimmerPage(),
+      home: const ShimmerLoading()
     );
   }
 }
