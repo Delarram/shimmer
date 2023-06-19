@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shimmerflutter/inapp-webview/inapp_webview.dart';
-import 'package:shimmerflutter/page/shimmer_loading.dart';
+import 'package:shimmerflutter/inapp-webview/inapp_button.dart';
 
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: InAppWebViewPage()
+      home: ButtonPage()
     );
   }
 }
