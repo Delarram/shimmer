@@ -4,14 +4,9 @@ import 'package:shimmerflutter/lang/language.dart';
 import '../main.dart';
 import 'language_const.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
-  @override
-  _SettingsPageState createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     var changeLanguage;
