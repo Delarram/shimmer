@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:shimmerflutter/const/api_const.dart';
 
 class InAppWebViewPage extends StatefulWidget {
   const InAppWebViewPage({Key? key}) : super(key: key);
@@ -14,8 +17,15 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    var stringUtfEncode = utf8.encode(jsonEncode({
+      "amount": aParamAmount,"phone":aParamPhone,"email":aParamEmail,"pickup_datetime":aParamPickUpDateTime,
+      "dropoff_datetime": aParamDropOffDateTime,"name": aParamName,"invoice_no": aParamInvoiceNum
+    }));
+    var encodeData = base64.encode(stringUtfEncode);
+    print(encodeData);
 
+
+    return WillPopScope(
       onWillPop: () async{
         var isLastPage = await inAppWebViewController.canGoBack();
         if(isLastPage){
@@ -30,7 +40,7 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
             children: [
               InAppWebView(
                 initialUrlRequest:
-                    URLRequest(url: Uri.parse("https://protocoderspoint.com/")),
+                    URLRequest(url: Uri.parse("https://ulay.app/data=$encodeData")),
                 onWebViewCreated: (InAppWebViewController controller) {
                   inAppWebViewController = controller;
                 },
@@ -41,10 +51,9 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
                   });
                 },
               ),
-              _progress < 1 ? Container(
-                child: LinearProgressIndicator(
-                  value: _progress,
-                ),
+              _progress < 1 ? LinearProgressIndicator(
+                value: _progress,
+                color: Colors.green,
               ) : SizedBox()
             ],
           ),
