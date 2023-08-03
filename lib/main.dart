@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shimmerflutter/page/design_change.dart';
 import 'package:shimmerflutter/page/language_page.dart';
 
 import 'lang/language_const.dart';
